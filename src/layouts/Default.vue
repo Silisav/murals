@@ -7,9 +7,11 @@
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
         <g-link class="nav__link" to="/about">About</g-link>
+        <g-link class="nav__link" to="/map">Map</g-link>
       </nav>
     </header>
-    <slot/>
+
+    <slot />
   </div>
 </template>
 
@@ -23,14 +25,14 @@ query {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
 }
 
 .layout {
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -46,5 +48,12 @@ body {
 
 .nav__link {
   margin-left: 20px;
+}
+.fade-enter-active {
+  transition: opacity 2.5s;
+}
+
+.fade-enter {
+  opacity: 0;
 }
 </style>
