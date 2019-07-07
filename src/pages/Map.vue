@@ -51,11 +51,11 @@ export default {
   },
   data() {
     return {
-      zoom: 15,
-      center: latLng(52.547715, 13.413936),
+      zoom: 12,
+      center: latLng(52.521147, 13.404577),
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       currentZoom: 11.5,
-      currentCenter: latLng(52.547715, 13.413936),
+      currentCenter: latLng(52.521147, 13.404577),
       mapOptions: {
         zoomSnap: 0.5
       }

@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <h1 class="site-heading">Murals @ Berlin</h1>
     <section class="murals">
       <div
         v-masonry
@@ -37,7 +38,7 @@ export default {
 
 <page-query>
 query Murals($page: Int) {
-  allMural (perPage: 6, page: $page) @paginate {
+  allMural (perPage: 10, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -62,6 +63,13 @@ query Murals($page: Int) {
 </page-query>
 
 <style>
+.site-heading {
+  font-size: 80px;
+  font-family: "Plume";
+  font-weight: normal;
+  font-style: normal;
+}
+
 .murals-navigation {
   display: flex;
   justify-content: center;
