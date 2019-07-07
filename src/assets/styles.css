@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Plume";
+  src: url("/fonts/Plume.woff2") format("woff2"),
+    url("/fonts/Plume.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

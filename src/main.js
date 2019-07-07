@@ -8,6 +8,8 @@ import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
+import '~/assets/styles.css'
+
 delete Icon.Default.prototype._getIconUrl;
 
 Icon.Default.mergeOptions({
