@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "@gridsome/source-airtable": "^0.1.0",
-    "gridsome": "^0.6.0"
+    "gridsome": "^0.6.0",
+    "leaflet": "^1.5.1",
+    "vue-masonry": "^0.11.7",
+    "vue2-leaflet": "^2.1.1"
   }
 }
