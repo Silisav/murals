@@ -1,33 +1,98 @@
 <template>
   <Layout>
-    
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-    
-    <h1>Hello, world!</h1>
-   
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <section class="murals">
+      <div
+        v-masonry
+        origin-left="false"
+        transition-duration="1s"
+        item-selector=".item"
+      >
+        <MuralPreview
+          v-masonry-tile
+          v-for="edge in $page.allMural.edges"
+          :key="edge.node.id"
+          :mural="edge.node"
+          class="item mural"
+        />
+      </div>
+    </section>
+    <Pager :info="$page.allMural.pageInfo" class="murals-navigation" />
   </Layout>
 </template>
 
 <script>
+import { Pager } from "gridsome";
+import MuralPreview from "../components/MuralPreview";
+
 export default {
+  components: {
+    Pager,
+    MuralPreview
+  },
   metaInfo: {
-    title: 'Hello, world!'
+    titleTemplate: "Street Art Berlin"
   }
-}
+};
 </script>
 
+<page-query>
+query Murals($page: Int) {
+  allMural (perPage: 6, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges {
+      node{
+        id,
+        title,
+        path,
+        artist,
+        photos {
+          thumbnails {
+             large{
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <style>
-.home-links a {
-  margin-right: 1rem;
+.murals-navigation {
+  display: flex;
+  justify-content: center;
+  flex: 0 1 auto;
+}
+.murals-navigation a {
+  box-sizing: border-box;
+  width: 2em;
+  background-color: #ccc;
+  color: #222;
+  font-weight: bold;
+  margin: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+.murals-navigation a.active {
+  font-weight: normal;
+  background-color: #222;
+  color: #fff;
+  cursor: default;
+}
+
+.murals figure,
+.murals img {
+  width: 100%;
+  margin: 0;
+}
+
+.murals .mural {
+  display: block;
+  width: 10em;
+  margin: 1em;
 }
 </style>
