@@ -2,13 +2,12 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from "~/layouts/Default.vue";
-import { VueMasonryPlugin } from "vue-masonry";
 
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import '~/assets/styles.css'
+import "~/assets/styles.css";
 
 delete Icon.Default.prototype._getIconUrl;
 
@@ -21,7 +20,7 @@ Icon.Default.mergeOptions({
 export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
-  Vue.use(VueMasonryPlugin);
+
   Vue.component("l-map", LMap);
   Vue.component("l-tile-layer", LTileLayer);
   Vue.component("l-marker", LMarker);

@@ -24,6 +24,7 @@
 <script>
 import { Pager } from "gridsome";
 import MuralPreview from "../components/MuralPreview";
+import Vue from "vue";
 
 export default {
   components: {
@@ -32,13 +33,20 @@ export default {
   },
   metaInfo: {
     titleTemplate: "Street Art Berlin"
+  },
+  beforeMount() {
+    const VueMasonryPlugin = require("vue-masonry").VueMasonryPlugin;
+    Vue.use(VueMasonryPlugin);
+    if (typeof this.$redrawVueMasonry === "function") {
+      this.$redrawVueMasonry();
+    }
   }
 };
 </script>
 
 <page-query>
 query Murals($page: Int) {
-  allMural (perPage: 10, page: $page) @paginate {
+  allMural (perPage: 11, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -64,10 +72,23 @@ query Murals($page: Int) {
 
 <style>
 .site-heading {
-  font-size: 80px;
+  font-size: 45px;
   font-family: "Plume";
   font-weight: normal;
   font-style: normal;
+  text-align: center;
+}
+
+@media only screen and (min-width: 400px) {
+  .site-heading {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .site-heading {
+    font-size: 70px;
+  }
 }
 
 .murals-navigation {
@@ -100,7 +121,21 @@ query Murals($page: Int) {
 
 .murals .mural {
   display: block;
-  width: 10em;
-  margin: 1em;
+  width: 48%;
+  margin: 1%;
+}
+
+@media only screen and (min-width: 400px) {
+  .murals .mural {
+    width: 23%;
+    margin: 1%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .murals .mural {
+    width: 18%;
+    margin: 1%;
+  }
 }
 </style>

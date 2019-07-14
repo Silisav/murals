@@ -23,8 +23,9 @@
 figure,
 .img-main {
   display: block;
-  height: 40em;
-  width: auto;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   margin: 0;
 }
 
