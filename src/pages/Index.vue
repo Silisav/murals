@@ -2,20 +2,12 @@
   <Layout>
     <h1 class="site-heading">Murals @ Berlin</h1>
     <section class="murals">
-      <div
-        v-masonry
-        origin-left="false"
-        transition-duration="1s"
-        item-selector=".item"
-      >
-        <MuralPreview
-          v-masonry-tile
-          v-for="edge in $page.allMural.edges"
-          :key="edge.node.id"
-          :mural="edge.node"
-          class="item mural"
-        />
-      </div>
+      <MuralPreview
+        v-for="edge in $page.allMural.edges"
+        :key="edge.node.id"
+        :mural="edge.node"
+        class="item mural"
+      />
     </section>
     <Pager :info="$page.allMural.pageInfo" class="murals-navigation" />
   </Layout>
@@ -33,13 +25,6 @@ export default {
   },
   metaInfo: {
     titleTemplate: "Street Art Berlin"
-  },
-  beforeMount() {
-    const VueMasonryPlugin = require("vue-masonry").VueMasonryPlugin;
-    Vue.use(VueMasonryPlugin);
-    if (typeof this.$redrawVueMasonry === "function") {
-      this.$redrawVueMasonry();
-    }
   }
 };
 </script>
@@ -119,23 +104,35 @@ query Murals($page: Int) {
   margin: 0;
 }
 
+.murals {
+  column-count: 2;
+  column-gap: 5px;
+}
+
 .murals .mural {
-  display: block;
-  width: 48%;
-  margin: 1%;
+  display: inline-block;
+  margin-bottom: 3px;
 }
 
 @media only screen and (min-width: 400px) {
+  .murals {
+    column-count: 3;
+    column-gap: 8px;
+  }
+
   .murals .mural {
-    width: 23%;
-    margin: 1%;
+    margin-bottom: 6px;
   }
 }
 
 @media only screen and (min-width: 768px) {
+  .murals {
+    column-count: 4;
+    column-gap: 10px;
+  }
+
   .murals .mural {
-    width: 18%;
-    margin: 1%;
+    margin-bottom: 8px;
   }
 }
 </style>
