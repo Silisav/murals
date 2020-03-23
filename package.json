@@ -11,6 +11,6 @@
     "gridsome": "^0.6.0",
     "leaflet": "^1.6.0",
     "vue-masonry": "^0.11.8",
-    "vue2-leaflet": "^2.1.1"
+    "vue2-leaflet": "^2.5.2"
   }
 }
