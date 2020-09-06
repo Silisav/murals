@@ -31,7 +31,7 @@ export default {
 
 <page-query>
 query Murals($page: Int) {
-  allMural (perPage: 11, page: $page) @paginate {
+  allMural (perPage: 12, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
