@@ -38,7 +38,7 @@
 </template>	
 
 <script>
-const latLng, Icon;
+let latLng, Icon;
 if (process.isClient) {
   Icon = require("leaflet").Icon;
   delete Icon.Default.prototype._getIconUrl;
