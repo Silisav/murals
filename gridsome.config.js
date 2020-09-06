@@ -14,8 +14,10 @@ module.exports = {
         baseId: process.env.AIRTABLE_BASE,
         tableName: "Murals",
         typeName: "Mural",
-        route: "/murals/:path"
-      }
-    }
-  ]
+      },
+    },
+  ],
+  templates: {
+    Mural: "/murals/:path",
+  },
 };
