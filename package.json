@@ -7,7 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@gridsome/source-airtable": "^0.1.4",
+    "@gridsome/source-airtable": "^0.2.0",
     "gridsome": "^0.7.23",
     "leaflet": "^1.7.1",
     "vue2-leaflet": "^2.6.0"
